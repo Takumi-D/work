@@ -1,23 +1,67 @@
-# Журнал работ
+# Work
 
-## Запуск
+React + Express + PostgreSQL + Prisma
+
+## Установка и запуск
+
+### 1. Клонирование проекта
 
 ```bash
-# Клонировать
 git clone https://github.com/Takumi-D/work.git
 cd work
+```
 
-# Сервер
+### 2. Настройка сервера
+
+Перейдите в папку сервера:
+
+```bash
 cd server
+```
 
-# создать файл .env и добавить DATABASE_URL="postgresql://postgres:ВАШ_ПАРОЛЬ@localhost:5432/ВАША_БАЗА_ДАННЫХ"
+Создайте файл `.env`:
 
+```env
+DATABASE_URL="postgresql://postgres:ВАШ_ПАРОЛЬ@localhost:5432/ВАША_БАЗА_ДАННЫХ"
+```
+
+Установите зависимости:
+
+```bash
 npm install
-npx prisma generate
-npx prisma migrate dev 
-npm start
+```
 
-# Клиент (новый терминал)
+Сгенерируйте Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+Примените миграции:
+
+```bash
+npx prisma migrate dev
+```
+
+Запустите сервер:
+
+```bash
+npm start
+```
+
+### 3. Запуск клиента
+
+Откройте новый терминал:
+
+```bash
 cd client
 npm install
 npm run dev
+```
+
+## Технологии
+
+- React
+- Express
+- PostgreSQL
+- Prisma ORM
