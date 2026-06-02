@@ -10,7 +10,7 @@ cd work
 # Сервер
 cd server
 
-# создать файл .env и добавить DATABASE_URL="postgresql://user:pass@localhost:5432/work"
+# создать файл .env и добавить DATABASE_URL="postgresql://postgres:ВАШ_ПАРОЛЬ@localhost:5432/ВАША_БАЗА_ДАННЫХ"
 
 npm install
 npx prisma generate
