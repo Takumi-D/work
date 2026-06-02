@@ -14,7 +14,7 @@ cd server
 
 npm install
 npx prisma generate
-npx prisma migrate dev --name init
+npx prisma migrate dev 
 npm start
 
 # Клиент (новый терминал)
