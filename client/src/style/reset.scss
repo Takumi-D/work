@@ -1,0 +1,87 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; /* 1rem = 16px по умолчанию */
+    -webkit-text-size-adjust: 100%; /* Запрет изменения размера шрифта на мобильных */
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Обнуление списков */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Обнуление ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Обнуление изображений */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Обнуление форм */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Обнуление таблиц */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Обнуление цитат */
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: '';
+}
+
+/* Скрытие элементов */
+[hidden] {
+    display: none !important;
+}
