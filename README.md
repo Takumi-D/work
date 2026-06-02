@@ -62,6 +62,8 @@ npm run dev
 ## Технологии
 
 - React
-- Express
+- React-hook-form для удобной обработки формы
+- Redux toolkit для удобной работы с данными и запросами
+- Express - легко написать сервер
 - PostgreSQL
-- Prisma ORM
+- Prisma ORM - для удобной работы с БД
