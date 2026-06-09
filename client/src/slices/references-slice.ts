@@ -5,7 +5,7 @@ import {
     CreateReferenceItem,
     ReferenceGetResponse
 } from "../types/slices/references-slice";
-import  { get, post, del, getOne, put } from "../srvice/api"
+import  { get, post, del, getOne, put } from "../service/api"
 
 const initialState: InitialState = {
     data: [],

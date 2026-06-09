@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+import prisma from "../../prisma/prismaClient"
+
 const router = express.Router();
 
 
@@ -50,6 +50,12 @@ router.get("/reference-form/:id", async (req: Request, res: Response) => {
             where: { id },
             include: { workType: true }
         });
+
+        if (!entry) {
+            res.status(404).json({ error: "Запись не найдена" });
+            return;
+        }
+
         res.json(entry);
     } catch (error) {
         res.status(500).json({ error: "Ошибка при получении" });
@@ -59,6 +65,13 @@ router.get("/reference-form/:id", async (req: Request, res: Response) => {
 router.put("/reference-form/:id", async (req: Request, res: Response) => {
     try {
         const id = Number(req.params.id);
+
+        const exists = await prisma.journalEntry.findUnique({ where: { id } });
+        if (!exists) {
+            res.status(404).json({ error: "Запись не найдена" });
+            return;
+        }
+
         const updated = await prisma.journalEntry.update({
             where: { id },
             data: {
@@ -69,6 +82,7 @@ router.put("/reference-form/:id", async (req: Request, res: Response) => {
                 workerName: req.body.workerName
             }
         });
+
         res.json(updated);
     } catch (error) {
         res.status(500).json({ error: "Ошибка при обновлении" });
@@ -78,9 +92,17 @@ router.put("/reference-form/:id", async (req: Request, res: Response) => {
 router.delete("/reference-form/:id", async (req: Request, res: Response) => {
     try {
         const id = Number(req.params.id);
+
+        const exists = await prisma.journalEntry.findUnique({ where: { id } });
+        if (!exists) {
+            res.status(404).json({ error: "Запись не найдена" });
+            return;
+        }
+
         await prisma.journalEntry.delete({
             where: { id }
         });
+
         res.json({ message: "Удалено" });
     } catch (error) {
         res.status(500).json({ error: "Ошибка при удалении" });

@@ -10,7 +10,7 @@ import { CreateReferenceItem } from "../../types/slices/references-slice";
 import { dataSelectors, loadingSelectors, errorSelectors } from "../../selectors/work-type-selectors";
 import { messageSelectors, errorMessageSelectors } from "../../selectors/references-selectors";
 import { getWorkType } from "../../slices/work-type-slice";
-import { fetchReferences, fetchReferenceById, updateReference, clearSuccessMessage, getReferences } from "../../slices/references-slice";
+import { fetchReferences, fetchReferenceById, updateReference, clearSuccessMessage } from "../../slices/references-slice";
 
 function ReferenceForm() {
     const { id } = useParams();
@@ -18,7 +18,7 @@ function ReferenceForm() {
     const isEdit = Boolean(id);
 
     const dispatch = useDispatch<AppDispatch>();
-    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<CreateReferenceItem>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<CreateReferenceItem>();
 
     const dataWorkType = useSelector(dataSelectors);
     const loadingWorkType = useSelector(loadingSelectors);

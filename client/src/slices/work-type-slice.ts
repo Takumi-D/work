@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { get, post } from "../srvice/api"
+import { get, post } from "../service/api"
 import {
     CreateWorkItem,
     InitialStateWorkType,
@@ -24,7 +24,7 @@ export const getWorkType = createAsyncThunk<WorkItemGetResponse, void>("work-typ
 });
 
 const workTypeSlice  = createSlice({
-    name: "references-slice",
+    name: "work-type-slice",
     initialState,
     reducers: {
         clearSuccessMessage(state: InitialStateWorkType) {

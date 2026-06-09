@@ -4,7 +4,7 @@ interface CreateReferenceItem {
     date: Date;
     workTypeId: number;
     volume: number;
-    unit: number;
+    unit: string;
     workerName: string;
 }
 
