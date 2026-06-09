@@ -49,6 +49,9 @@ const referencesSlice  = createSlice({
         clearSuccessMessage(state: InitialState) {
             state.successMessage = null;
         },
+        clearErrorMessage(state: InitialState) {
+            state.errorMessage = null;
+        },
         setSortOrder(state, action: PayloadAction<'asc' | 'desc' | null>) {
             state.sortOrder = action.payload;
         }
@@ -117,6 +120,6 @@ const referencesSlice  = createSlice({
     }
 });
 
-export const { clearSuccessMessage, setSortOrder } = referencesSlice.actions;
+export const { clearSuccessMessage, setSortOrder, clearErrorMessage } = referencesSlice.actions;
 
 export default referencesSlice.reducer;

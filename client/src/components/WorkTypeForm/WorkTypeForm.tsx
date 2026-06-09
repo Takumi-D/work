@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../store/store";
 import { fetchWorkType } from "../../slices/work-type-slice";
 import { loadingSelectors, messageSelectors, errorSelectors } from "../../selectors/work-type-selectors";
-import { clearSuccessMessage } from "../../slices/work-type-slice"
-import {CreateWorkItem} from "../../types/slices/work-type-slice";
+import { clearSuccessMessage, clearErrorMessage } from "../../slices/work-type-slice"
+import { CreateWorkItem } from "../../types/slices/work-type-slice";
 
 function WorkTypeForm() {
     const dispatch = useDispatch<AppDispatch>();
@@ -32,6 +32,15 @@ function WorkTypeForm() {
             return () => clearTimeout(timer);
         }
     }, [dispatch, successMessage]);
+
+    useEffect(() => {
+        if (errorMessage) {
+            const timer = setTimeout(() => {
+                dispatch(clearErrorMessage());
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [dispatch, errorMessage]);
 
     if (loading) {
         return (<div className="form__loading">Загрузка...</div>)

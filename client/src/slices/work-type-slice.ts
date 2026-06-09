@@ -29,6 +29,9 @@ const workTypeSlice  = createSlice({
     reducers: {
         clearSuccessMessage(state: InitialStateWorkType) {
             state.successMessage = null;
+        },
+        clearErrorMessage(state: InitialStateWorkType) {
+            state.errorMessage = null;
         }
     },
     extraReducers: (builder) => {
@@ -57,6 +60,6 @@ const workTypeSlice  = createSlice({
     }
 });
 
-export const { clearSuccessMessage } = workTypeSlice.actions;
+export const { clearSuccessMessage, clearErrorMessage } = workTypeSlice.actions;
 
 export default workTypeSlice.reducer;

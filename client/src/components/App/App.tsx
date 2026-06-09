@@ -3,7 +3,7 @@ import { Route, Routes, useLocation  } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { AppDispatch } from "../../store/store";
-import { clearSuccessMessage } from "../../slices/references-slice"
+import { clearSuccessMessage, clearErrorMessage } from "../../slices/references-slice"
 
 import "./App.scss";
 
@@ -19,6 +19,7 @@ function App(){
 
     useEffect(() => {
         dispatch(clearSuccessMessage());
+        dispatch(clearErrorMessage());
     }, [location.pathname]);
 
     return (
